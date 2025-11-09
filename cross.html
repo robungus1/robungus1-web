@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>robungus1 — Official Site</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1: #0f1724;
+      --bg2: #0b1220;
+      --accent:  #7c5cff;
+      --accent2: #32d6ff;
+      --muted: #9aa4b2;
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.10), transparent),
+                  radial-gradient(800px 400px at 90% 85%, rgba(0,200,255,0.04), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#e6eef7;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+      overflow:hidden;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:var(--radius);
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+      padding:50px 30px;
+      text-align:center;
+      animation: fadeIn 1s ease both;
+      backdrop-filter: blur(10px);
+    }
+
+    .owner{
+      font-size:36px;
+      font-weight:800;
+      margin-bottom:16px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    p{
+      color:var(--muted);
+      max-width:600px;
+      margin:0 auto 40px;
+      line-height:1.6;
+      font-size:16px;
+      animation: fadeInUp 1s ease both;
+    }
+
+    .btn-group{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:15px;
+      animation: fadeInUp 1.2s ease both;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      color:#0b1220;
+      font-weight:700;
+      padding:14px 26px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(124,92,255,0.25);
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.03);
+      box-shadow: 0 0 30px rgba(124,92,255,0.6);
+    }
+
+    .btn:active{
+      transform:scale(0.97);
+    }
+
+    footer{
+      margin-top:40px;
+      color:var(--muted);
+      font-size:14px;
+      animation: fadeIn 2s ease both;
+    }
+
+    /* subtle floating animation */
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(10px);}
+      to {opacity:1; transform:none;}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity:0; transform:translateY(30px);}
+      to {opacity:1; transform:none;}
+    }
+
+    /* floating sparkles background */
+    .sparkles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .sparkles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      opacity: 0.2;
+      border-radius: 50%;
+      animation: sparkleMove 6s linear infinite;
+    }
+
+    @keyframes sparkleMove {
+      from { transform: translateY(100vh) scale(0.5); opacity: 0.4; }
+      to { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* responsive */
+    @media(max-width:600px){
+      .owner{font-size:28px;}
+      p{font-size:15px;}
+      .btn{width:100%; font-size:15px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Background sparkles -->
+  <div class="sparkles">
+    <span style="left:10%;animation-delay:0s;"></span>
+    <span style="left:25%;animation-delay:1s;"></span>
+    <span style="left:50%;animation-delay:2s;"></span>
+    <span style="left:75%;animation-delay:3s;"></span>
+    <span style="left:90%;animation-delay:4s;"></span>
+  </div>
+
+  <div class="container">
+    <div class="owner">robungus1</div>
+    <p>Welcome to my official hub! Explore my Roblox creations and follow me on social media. Click below to check out my latest game and profiles.</p>
+
+    <div class="btn-group">
+      <button class="btn" id="robloxGame">🎮 Play Roblox Game</button>
+      <button class="btn" id="robloxProfile">🧑 Roblox Profile</button>
+      <button class="btn" id="twitterProfile">🐦 Twitter Profile</button>
+    </div>
+
+    <footer>© 2025 robungus1 — All rights reserved.</footer>
+  </div>
+
+  <script>
+    // Links
+    const ROBLOX_GAME_ID = 110817909755069;
+    const ROBLOX_PROFILE_URL = "https://www.roblox.com/users/"; // <- add your user ID below if you know it
+    const TWITTER_URL = "https://twitter.com/robungus1"; // change if needed
+
+    document.getElementById('robloxGame').addEventListener('click', () => {
+      const url = `https://www.roblox.com/games/${ROBLOX_GAME_ID}`;
+      window.open(url, '_blank');
+    });
+
+    document.getElementById('robloxProfile').addEventListener('click', () => {
+      // Update with your Roblox profile URL (example below uses username)
+      window.open("https://www.roblox.com/users/profile?username=robungus1", '_blank');
+    });
+
+    document.getElementById('twitterProfile').addEventListener('click', () => {
+      window.open(TWITTER_URL, '_blank');
+    });
+  </script>
+</body>
+</html>
